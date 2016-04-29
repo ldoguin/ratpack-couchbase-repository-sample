@@ -25,7 +25,9 @@ repositories {
 }
 
 dependencies {
-  compile "com.couchbase.client:java-client:2.2.5" 
+  compile ratpack.dependency("guice"),
+          ratpack.dependency("rx"),
+          "com.couchbase.client:java-client:2.2.5" 
 }
     
 mainClassName = "org.couchbase.devex.Application"
