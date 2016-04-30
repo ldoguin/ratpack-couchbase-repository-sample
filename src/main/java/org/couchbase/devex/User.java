@@ -2,6 +2,7 @@ package org.couchbase.devex;
 
 import com.couchbase.client.java.repository.annotation.Field;
 import com.couchbase.client.java.repository.annotation.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
 
@@ -11,12 +12,17 @@ public class User {
 	private Integer age;
 
 	@Field("fName")
+	@JsonProperty("fName")
 	private String firstName;
 
 	@Field("lName")
+	@JsonProperty("lName")
 	private String lastName;
+	
+	private String type = "user";
 
-	public User() {}
+	public User() {
+	}
 
 	public User(String username, Integer age, String firstName, String lastName) {
 		this.username = username;
@@ -57,6 +63,10 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	public String getType() {
+		return type;
+	}
+	
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", age=" + age + ", firstName=" + firstName + ", lastName=" + lastName

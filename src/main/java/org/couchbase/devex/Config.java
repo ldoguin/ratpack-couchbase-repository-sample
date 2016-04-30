@@ -13,5 +13,7 @@ public class Config extends AbstractModule {
 		Bucket bucket = cc.openBucket();
 		bind(AsyncBucket.class).toInstance(bucket.async());
 		bind(AsyncRepository.class).toInstance(bucket.repository().async());
+		bind(UserHandler.class);
+		bind(UserRenderer.class);
 	}
 }
